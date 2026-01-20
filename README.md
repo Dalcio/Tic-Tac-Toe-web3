@@ -12,9 +12,10 @@ A decentralized Tic-Tac-Toe game built on the blockchain! Play against friends, 
 
 ### Video Demo
 
-https://github.com/user-attachments/assets/tick-tac-toe.mp4
+./tick-tac-toe.mp4
 
-<video src="public/tick tac toe.mp4" controls width="100%"></video>
+![Web3 Tic-Tac-Toe Video](./tick-tac-toe.mp4)
+<video src="./tick-tac-toe.mp4" controls width="100%"></video>
 
 ## ✨ Features
 
