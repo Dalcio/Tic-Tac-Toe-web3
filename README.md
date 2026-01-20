@@ -4,6 +4,18 @@ A decentralized Tic-Tac-Toe game built on the blockchain! Play against friends, 
 
 ![Web3 Tic-Tac-Toe](https://img.shields.io/badge/Solidity-0.8.20-blue) ![Next.js](https://img.shields.io/badge/Next.js-16-black) ![ethers.js](https://img.shields.io/badge/ethers.js-6.x-purple)
 
+## 📸 Demo
+
+### Screenshot
+
+![Web3 Tic-Tac-Toe Screenshot](public/image-1768921094516.png)
+
+### Video Demo
+
+https://github.com/user-attachments/assets/tick-tac-toe.mp4
+
+<video src="public/tick tac toe.mp4" controls width="100%"></video>
+
 ## ✨ Features
 
 - **On-Chain Gameplay**: All game moves are recorded on the blockchain
