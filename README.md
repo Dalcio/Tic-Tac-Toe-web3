@@ -82,6 +82,7 @@ pnpm deploy:localhost
 ```
 
 This will:
+
 - Deploy the contract
 - Save the address to `.env.local` automatically
 - Show the contract address in the console
@@ -139,6 +140,7 @@ To import into MetaMask:
 1. Get test ETH from [Sepolia Faucet](https://sepoliafaucet.com/)
 
 2. Make sure your `.env` has:
+
    ```env
    PRIVATE_KEY=your_wallet_private_key
    SEPOLIA_RPC_URL=https://eth-sepolia.g.alchemy.com/v2/your-api-key
@@ -154,6 +156,7 @@ To import into MetaMask:
 1. Get test MATIC from [Polygon Faucet](https://faucet.polygon.technology/)
 
 2. Make sure your `.env` has:
+
    ```env
    PRIVATE_KEY=your_wallet_private_key
    AMOY_RPC_URL=https://polygon-amoy.g.alchemy.com/v2/your-api-key
@@ -243,17 +246,17 @@ The contract implements:
 
 ## 🛠️ Development Commands
 
-| Command                  | Description                        |
-| ------------------------ | ---------------------------------- |
-| `pnpm dev`               | Start Next.js dev server           |
-| `pnpm build`             | Build for production               |
-| `pnpm compile`           | Compile Solidity contracts         |
-| `pnpm node`              | Start local Hardhat network        |
-| `pnpm deploy:localhost`  | Deploy to local network            |
-| `pnpm deploy:sepolia`    | Deploy to Sepolia testnet          |
-| `pnpm deploy:amoy`       | Deploy to Polygon Amoy testnet     |
-| `pnpm deploy:polygon`    | Deploy to Polygon mainnet          |
-| `pnpm test`              | Run smart contract tests           |
+| Command                 | Description                    |
+| ----------------------- | ------------------------------ |
+| `pnpm dev`              | Start Next.js dev server       |
+| `pnpm build`            | Build for production           |
+| `pnpm compile`          | Compile Solidity contracts     |
+| `pnpm node`             | Start local Hardhat network    |
+| `pnpm deploy:localhost` | Deploy to local network        |
+| `pnpm deploy:sepolia`   | Deploy to Sepolia testnet      |
+| `pnpm deploy:amoy`      | Deploy to Polygon Amoy testnet |
+| `pnpm deploy:polygon`   | Deploy to Polygon mainnet      |
+| `pnpm test`             | Run smart contract tests       |
 
 ## 📚 Tech Stack
 

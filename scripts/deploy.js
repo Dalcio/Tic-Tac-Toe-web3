@@ -4,7 +4,7 @@ const path = require("path");
 
 /**
  * Deployment script for TicTacToe smart contract
- * 
+ *
  * Usage:
  * - Local: npx hardhat run scripts/deploy.js --network localhost
  * - Sepolia: npx hardhat run scripts/deploy.js --network sepolia
@@ -16,7 +16,7 @@ async function main() {
   // Get deployer account
   const [deployer] = await hre.ethers.getSigners();
   console.log("📍 Deploying with account:", deployer.address);
-  
+
   // Get account balance
   const balance = await hre.ethers.provider.getBalance(deployer.address);
   console.log("💰 Account balance:", hre.ethers.formatEther(balance), "ETH\n");
@@ -27,7 +27,7 @@ async function main() {
   const ticTacToe = await TicTacToe.deploy();
 
   await ticTacToe.waitForDeployment();
-  
+
   const contractAddress = await ticTacToe.getAddress();
   console.log("✅ TicTacToe deployed to:", contractAddress);
 
@@ -35,10 +35,11 @@ async function main() {
   const deploymentTx = ticTacToe.deploymentTransaction();
   if (deploymentTx) {
     console.log("📝 Transaction hash:", deploymentTx.hash);
-    
+
     // Wait for confirmations on testnets
     const network = await hre.ethers.provider.getNetwork();
-    if (Number(network.chainId) !== 31337) { // Not localhost
+    if (Number(network.chainId) !== 31337) {
+      // Not localhost
       console.log("⏳ Waiting for confirmations...");
       await deploymentTx.wait(3);
       console.log("✅ Confirmed!");
@@ -61,14 +62,24 @@ async function main() {
   }
 
   // Save deployment info to file
-  const deploymentFile = path.join(deploymentsDir, `deployment-${deploymentInfo.chainId}.json`);
+  const deploymentFile = path.join(
+    deploymentsDir,
+    `deployment-${deploymentInfo.chainId}.json`,
+  );
   fs.writeFileSync(deploymentFile, JSON.stringify(deploymentInfo, null, 2));
   console.log(`\n📄 Deployment info saved to: ${deploymentFile}`);
 
   // Copy ABI to lib folder for frontend
-  const artifactPath = path.join(__dirname, "..", "artifacts", "contracts", "TicTacToe.sol", "TicTacToe.json");
+  const artifactPath = path.join(
+    __dirname,
+    "..",
+    "artifacts",
+    "contracts",
+    "TicTacToe.sol",
+    "TicTacToe.json",
+  );
   const libDir = path.join(__dirname, "..", "lib", "contracts");
-  
+
   if (!fs.existsSync(libDir)) {
     fs.mkdirSync(libDir, { recursive: true });
   }
@@ -76,7 +87,10 @@ async function main() {
   if (fs.existsSync(artifactPath)) {
     const artifact = JSON.parse(fs.readFileSync(artifactPath, "utf8"));
     const abiFile = path.join(libDir, "TicTacToe.json");
-    fs.writeFileSync(abiFile, JSON.stringify({ abi: artifact.abi, address: contractAddress }, null, 2));
+    fs.writeFileSync(
+      abiFile,
+      JSON.stringify({ abi: artifact.abi, address: contractAddress }, null, 2),
+    );
     console.log(`📄 ABI saved to: ${abiFile}`);
   }
 
